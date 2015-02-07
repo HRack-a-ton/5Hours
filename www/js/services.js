@@ -8,10 +8,10 @@ angular.module('starter.services', ['firebase'])
     /**
      * Example given is
      *   var friendsRef = new Firebase("https://<your-account>.firebaseio.com/<your collection>");
-     * 
+     *
      * This scaffold included:
      *   var friendsRef = new Firebase("https://auth0-ionic-sample.firebaseio.com/friends");
-     * 
+     *
      * From page:
      *   https://auth0.com/docs/scenarios/ionic-and-firebase
      **/
@@ -48,3 +48,27 @@ angular.module('starter.services', ['firebase'])
     };
 
 });
+
+var testData = {
+    "polls": {
+    "Do you want to get a beer after class?": {
+      "pollCreatedLat": 123,
+      "pollCreatedLong": 456,
+      "pollCreatedTime": 789,
+      "pollResponses": {
+        "Aaron Melocik": {
+          "pollResponseLat": 789,
+          "pollResponseLong": 321,
+          "pollResponseTime": 456789,
+          "thisUsersAnswer": "No"
+        },
+        "Mike Luby": {
+          "pollResponseLat": 789,
+          "pollResponseLong": 321,
+          "pollResponseTime": 987654,
+          "thisUsersAnswer": "Yes"
+        }
+      }
+    }
+  }
+};
