@@ -74,7 +74,7 @@ angular.module('starter.services', ['firebase'])
 //   });
 //   //Sets up a link with firebase /friends api
 //   var friendsSync = $firebase(friendsRef);
-//   //creates 
+//   //creates
 //   var friends = friendsSync.$asArray();
 
 //   this.all = function() {

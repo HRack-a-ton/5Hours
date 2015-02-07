@@ -10,11 +10,13 @@ angular.module('starter.controllers', [])
     }
   }, function(profile, idToken, accessToken, state, refreshToken) {
     store.set('profile', profile);
+    console.log(store.get('profile').email);
     store.set('token', idToken);
     store.set('refreshToken', refreshToken);
     auth.getToken({
       api: 'firebase'
     }).then(function(delegation) {
+      $state.go('tab.polls');
       store.set('firebaseToken', delegation.id_token);
       $state.go('tab.polls');
     }, function(error) {
@@ -38,6 +40,8 @@ angular.module('starter.controllers', [])
     name: '',
     description: ''
   };
+
+
 
   $scope.polls = Polls.all();
 
@@ -71,6 +75,10 @@ angular.module('starter.controllers', [])
   $scope.$on('$destroy', function() {
     $scope.modal.remove();
   });
+})
+
+.controller('PollVote', function($scope, $stateParams) {
+
 })
 
 .controller('singlePollCtrl', function($scope, $stateParams, Polls) {
