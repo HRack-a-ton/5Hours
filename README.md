@@ -7,13 +7,13 @@
 
 WORK ON YOUR FEATURE AND ONCE IT IS DONE...
 
-`git checkout master
+`git checkout master`
 
-git pull origin master
+`git pull origin master`
 
-git checkout branch_name
+`git checkout branch_name`
 
-git merge master`
+`git merge master`
 
 FIX ANY MERGE CONFLICTS
 
