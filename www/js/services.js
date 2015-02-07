@@ -27,7 +27,8 @@ angular.module('starter.services', ['firebase'])
       twostar: 1,
       threestar:8,
       fourstar: 7,
-      fivestar:5
+      fivestar:5,
+      averageRating: 3
     },
     {
       id: 2,
@@ -36,7 +37,8 @@ angular.module('starter.services', ['firebase'])
       twostar: 1,
       threestar:2,
       fourstar: 6,
-      fivestar:10
+      fivestar:10,
+      averageRating: 4
     }
     ]
     return polls;
