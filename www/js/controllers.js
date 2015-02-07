@@ -42,11 +42,7 @@ angular.module('starter.controllers', [])
     description: ''
   };
 
-  // $scope.polls = Polls.all();
-  Polls.sync().then(function(data){
-    console.log('data',data)
-    $scope.polls = data.polls;
-  })
+  $scope.polls = Polls.all();
 
   $scope.showAddFriend = function() {
     $scope.modal.show();
