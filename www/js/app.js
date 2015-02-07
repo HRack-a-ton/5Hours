@@ -56,21 +56,21 @@ angular.module('starter', ['ionic',
 
     // Each tab has its own nav history stack:
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.polls', {
+      url: '/polls',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-polls': {
+          templateUrl: 'templates/tab-polls.html',
+          controller: 'PollsCtrl'
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.singlePoll', {
+      url: '/poll/:pollId',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-poll': {
+          templateUrl: 'templates/singlePoll.html',
+          controller: 'singlePollCtrl'
         }
       }
     })
@@ -94,7 +94,7 @@ angular.module('starter', ['ionic',
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/friends');
+  $urlRouterProvider.otherwise('/tab/polls');
 
   jwtInterceptorProvider.tokenGetter = function(store, jwtHelper, auth) {
     var idToken = store.get('token');
