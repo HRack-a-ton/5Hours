@@ -68,6 +68,7 @@ angular.module('starter.controllers', [])
     $scope.polls = results;
   })
 
+
   $scope.showAddFriend = function() {
     $scope.modal.show();
   };

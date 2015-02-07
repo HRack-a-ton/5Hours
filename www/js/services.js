@@ -21,40 +21,19 @@ angular.module('starter.services', ['firebase'])
       // $state.go('login');
     }
   });
-  var polls;
+  var polls = {asArray: []};
   var fbSync = $firebase(fb);
   var fbpolls = fbSync.$asObject();
-  
 
-
-  
   // console.log(polls)
   this.sync = function(){
-    return fbpolls.$loaded()
+    return ;
   }
   this.all = function() {
-    // return [
-    // {
-    //   id: 1,
-    //   text:'The Quinoa salad',
-    //   onestar: 2,
-    //   twostar: 1,
-    //   threestar:8,
-    //   fourstar: 7,
-    //   fivestar:5,
-    //   averageRating: 3
-    // },
-    // {
-    //   id: 2,
-    //   text:'Hackaton sponsor swag',
-    //   onestar: 2,
-    //   twostar: 1,
-    //   threestar:2,
-    //   fourstar: 6,
-    //   fivestar:10,
-    //   averageRating: 4
-    // }
-    // ]
+    fbpolls.$loaded().then(function(data){
+      angular.copy(data.polls, polls);
+    });
+
     return polls;
   };
 
@@ -90,7 +69,7 @@ angular.module('starter.services', ['firebase'])
 //   });
 //   //Sets up a link with firebase /friends api
 //   var friendsSync = $firebase(friendsRef);
-//   //creates 
+//   //creates
 //   var friends = friendsSync.$asArray();
 
 //   this.all = function() {
