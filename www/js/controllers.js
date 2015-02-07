@@ -45,7 +45,27 @@ angular.module('starter.controllers', [])
   // $scope.polls = Polls.all();
   Polls.sync().then(function(data){
     console.log('data',data)
-    $scope.polls = data.polls;
+    var polls = data.polls;
+    for(var k in polls){
+      var results = [];
+      var totalYes = 0;
+      var totalNo = 0;
+      for(var i in polls[k].pollResponses){
+        if(polls[k].pollResponses[i].thisUsersAnswer === 'Yes'){
+          totalYes++;
+        }
+        if(polls[k].pollResponses[i].thisUsersAnswer === 'No'){
+          totalNo++;
+        }
+
+      }
+      results.push({
+        name: k,
+        yes: totalYes,
+        no: totalNo
+      })
+    }
+    $scope.polls = results;
   })
 
   $scope.showAddFriend = function() {
