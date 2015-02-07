@@ -21,19 +21,40 @@ angular.module('starter.services', ['firebase'])
       // $state.go('login');
     }
   });
-  var polls = {asArray: []};
+  var polls;
   var fbSync = $firebase(fb);
   var fbpolls = fbSync.$asObject();
+  
 
+
+  
   // console.log(polls)
   this.sync = function(){
-    return ;
+    return fbpolls.$loaded()
   }
   this.all = function() {
-    fbpolls.$loaded().then(function(data){
-      angular.copy(data.polls, polls);
-    });
-
+    // return [
+    // {
+    //   id: 1,
+    //   text:'The Quinoa salad',
+    //   onestar: 2,
+    //   twostar: 1,
+    //   threestar:8,
+    //   fourstar: 7,
+    //   fivestar:5,
+    //   averageRating: 3
+    // },
+    // {
+    //   id: 2,
+    //   text:'Hackaton sponsor swag',
+    //   onestar: 2,
+    //   twostar: 1,
+    //   threestar:2,
+    //   fourstar: 6,
+    //   fivestar:10,
+    //   averageRating: 4
+    // }
+    // ]
     return polls;
   };
 
