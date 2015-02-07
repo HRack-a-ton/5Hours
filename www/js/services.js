@@ -5,12 +5,12 @@ angular.module('starter.services', ['firebase'])
  * A simple example service that returns some data.
  */
 .service('Polls', function($firebase, store, $state) {
-  var pollsRef = new Firebase("https://pollApp.firebaseio.com/polls");
+  var pollsRef = new Firebase("https://sizzling-torch-1069.firebaseio.com/polls");
   //set token so we can access database
   pollsRef.authWithCustomToken(store.get('firebaseToken'), function(error, auth) {
     if (error) {
       // There was an error logging in, redirect the user to login page
-      $state.go('login');
+      // $state.go('login');
     }
   });
   //Sets up a link with firebase /polls object
@@ -41,7 +41,7 @@ angular.module('starter.services', ['firebase'])
       averageRating: 4
     }
     ]
-    return polls;
+    return polls.$loaded();
   };
 
   this.add = function(friend) {
