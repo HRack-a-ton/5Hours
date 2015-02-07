@@ -5,42 +5,55 @@ angular.module('starter.services', ['firebase'])
  * A simple example service that returns some data.
  */
 .service('Polls', function($firebase, store, $state) {
-  var pollsRef = new Firebase("https://pollApp.firebaseio.com/polls");
+  var pollsRef = new Firebase("https://sizzling-torch-1069.firebaseio.com/polls");
+  var fb = new Firebase("https://sizzling-torch-1069.firebaseio.com");
   //set token so we can access database
   pollsRef.authWithCustomToken(store.get('firebaseToken'), function(error, auth) {
     if (error) {
       // There was an error logging in, redirect the user to login page
-      $state.go('login');
+      // $state.go('login');
     }
   });
-  //Sets up a link with firebase /polls object
-  var pollsSync = $firebase(pollsRef);
-  //creates two way binding with /polls object
-  var polls = pollsSync.$asArray();
 
-  this.all = function() {
-    return [
-    {
-      id: 1,
-      text:'The Quinoa salad',
-      onestar: 2,
-      twostar: 1,
-      threestar:8,
-      fourstar: 7,
-      fivestar:5,
-      averageRating: 3
-    },
-    {
-      id: 2,
-      text:'Hackaton sponsor swag',
-      onestar: 2,
-      twostar: 1,
-      threestar:2,
-      fourstar: 6,
-      fivestar:10,
-      averageRating: 4
+  fb.authWithCustomToken(store.get('firebaseToken'), function(error, auth) {
+    if (error) {
+      // There was an error logging in, redirect the user to login page
+      // $state.go('login');
     }
-    ]
+  });
+  var polls;
+  var fbSync = $firebase(fb);
+  var fbpolls = fbSync.$asObject();
+  fbpolls.$loaded().then(function(data){
+    var polls = data.polls
+    console.log(polls)
+
+
+  })
+  // console.log(polls)
+  this.all = function() {
+    // return [
+    // {
+    //   id: 1,
+    //   text:'The Quinoa salad',
+    //   onestar: 2,
+    //   twostar: 1,
+    //   threestar:8,
+    //   fourstar: 7,
+    //   fivestar:5,
+    //   averageRating: 3
+    // },
+    // {
+    //   id: 2,
+    //   text:'Hackaton sponsor swag',
+    //   onestar: 2,
+    //   twostar: 1,
+    //   threestar:2,
+    //   fourstar: 6,
+    //   fivestar:10,
+    //   averageRating: 4
+    // }
+    // ]
     return polls;
   };
 

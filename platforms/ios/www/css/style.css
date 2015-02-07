@@ -1,1 +1,6 @@
 /* Empty. Add your own CSS if you like */
+.stars {
+	float: right;
+	color: blue;
+	margin-right:40% ;
+}
