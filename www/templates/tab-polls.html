@@ -1,4 +1,4 @@
-<ion-view title="Friends">
+<ion-view title="Polls">
   <ion-nav-buttons side="right">
     <button class="button button-clear button-positive" ng-click="showAddFriend()">
       Add
@@ -6,8 +6,8 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.$id}}">
-        {{friend.name}}
+      <ion-item ng-repeat="poll in polls" type="item-text-wrap" href="#/tab/poll/{{poll.$id}}">
+        {{poll.text}}
 
         <ion-option-button class="button-calm"
           ng-click="editFriend(friend)">

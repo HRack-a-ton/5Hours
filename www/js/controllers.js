@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
       api: 'firebase'
     }).then(function(delegation) {
       store.set('firebaseToken', delegation.id_token);
-      $state.go('tab.friends');
+      $state.go('tab.polls');
     }, function(error) {
       console.log("There was an error logging in", error);
     })
@@ -26,8 +26,8 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('FriendsCtrl', function($scope, Friends, $ionicModal) {
- $ionicModal.fromTemplateUrl('templates/friend-add-modal.html', {
+.controller('PollsCtrl', function($scope, Polls, $ionicModal) {
+ $ionicModal.fromTemplateUrl('templates/poll-add-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
@@ -39,7 +39,7 @@ angular.module('starter.controllers', [])
     description: ''
   };
 
-  $scope.friends = Friends.all();
+  $scope.polls = Polls.all();
 
   $scope.showAddFriend = function() {
     $scope.modal.show();
@@ -47,16 +47,16 @@ angular.module('starter.controllers', [])
 
   $scope.addFriend = function() {
     if(!$scope.newFriend.$id) {
-      Friends.add($scope.newFriend);
+      Polls.add($scope.newFriend);
     } else {
-      Friends.save($scope.newFriend);
+      Polls.save($scope.newFriend);
     }
     $scope.newFriend = {};
     $scope.modal.hide();
   };
 
   $scope.deleteFriend = function(friend) {
-    Friends.delete(friend);
+    Polls.delete(friend);
   };
 
   $scope.editFriend = function(friend) {
@@ -73,8 +73,8 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
+.controller('singlePollCtrl', function($scope, $stateParams, Polls) {
+  $scope.poll = Poll.get($stateParams.pollId);
 })
 
 .controller('AccountCtrl', function($scope, auth, $state, store) {
