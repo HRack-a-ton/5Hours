@@ -101,4 +101,10 @@ angular.module('starter.controllers', [])
     store.remove('refreshToken');
     $state.go('login');
   }
+})
+
+.controller('NewPollCtrl', function($scope, Polls, $state, store) {
+  $scope.submitNewPost = function(pollData) {
+    console.log("working", pollData)  
+  }
 });
