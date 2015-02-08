@@ -1,5 +1,10 @@
 angular.module('starter.controllers', [])
 
+
+// // TODO: Somewhere here we need the following:
+// var userLocation = new UserLocation();
+// // To get current location:
+// var location = userLocation.getLocation();
 .controller('LoginCtrl', function($scope, auth, $state, store) {
   auth.signin({
     closable: false,
@@ -111,6 +116,17 @@ angular.module('starter.controllers', [])
 
 .controller('NewPollCtrl', function($scope, Polls, $state, store) {
   $scope.submitNewPost = function(pollData) {
+
+    if(typeof pollData != "string" || pollData.length <= 0)
+      return;
+
     console.log("working", pollData)
+    var poll = {
+      name: pollData
+    };
+
+    Polls.add(poll);
+    $scope.pollData = "";
+
   }
 });
