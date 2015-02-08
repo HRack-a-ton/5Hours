@@ -115,7 +115,9 @@ angular.module('starter.controllers', [])
 
     console.log("working", pollData)  
     var poll = {
-      name: pollData
+      id: pollData,
+      name: pollData,
+      createdTime: Date()
     };
 
     Polls.add(poll);
