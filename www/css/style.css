@@ -58,12 +58,14 @@ pre {
 
 .tabs {
   height: 5.2em;
-  background-color: rgba(0, 255, 29, 0.15)!important;
+  background-color: #D9FFDD!important;
+  /*background-color: rgba(0, 255, 29, 0.15)!important;*/
 }
 
 .bar-header {
   height: 2.6em;
-  background-color: rgba(0, 255, 29, 0.15)!important;
+  background-color: #D9FFDD!important;
+  /*background-color: rgba(0, 255, 29, 0.15)!important;*/
 }
 
 
@@ -92,4 +94,16 @@ pre {
 
 .button.button-balanced, .button.button-positive {
   border-radius: 1.5em;
+}
+
+.item-complex {
+  border: 0.18em solid #ededed;
+  border-radius: 7px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+a.item-complex:hover {
+  background-color: yellow;
 }
