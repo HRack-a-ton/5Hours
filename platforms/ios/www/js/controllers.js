@@ -12,6 +12,9 @@ angular.module('starter.controllers', [])
     store.set('profile', profile);
     store.set('token', idToken);
     store.set('refreshToken', refreshToken);
+    //temporarily just go to tab.polls
+    $state.go('tab.polls');
+    /////////////////////
     auth.getToken({
       api: 'firebase'
     }).then(function(delegation) {

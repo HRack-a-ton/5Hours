@@ -24,13 +24,14 @@ angular.module('starter.services', ['firebase'])
   var polls;
   var fbSync = $firebase(fb);
   var fbpolls = fbSync.$asObject();
-  fbpolls.$loaded().then(function(data){
-    var polls = data.polls
-    console.log(polls)
+  
 
 
-  })
+  
   // console.log(polls)
+  this.sync = function(){
+    return fbpolls.$loaded()
+  }
   this.all = function() {
     // return [
     // {
@@ -89,7 +90,7 @@ angular.module('starter.services', ['firebase'])
 //   });
 //   //Sets up a link with firebase /friends api
 //   var friendsSync = $firebase(friendsRef);
-//   //creates 
+//   //creates
 //   var friends = friendsSync.$asArray();
 
 //   this.all = function() {
