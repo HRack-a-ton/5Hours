@@ -1,0 +1,12 @@
+<ion-view title="New Poll">
+  <ion-content class="has-header padding">
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <textarea ng-model="pollData" style="min-height:20em;text-align:center;margin-bottom:20px;"type="text" placeholder="Your Poll goes here"></textarea>
+    </label>
+  </div>
+   <button class="button button-balanced button-block" ng-click="submitNewPost(pollData)">
+    Submit
+    </button>
+  </ion-content>
+</ion-view>
