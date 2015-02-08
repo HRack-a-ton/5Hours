@@ -6,8 +6,13 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
+<<<<<<< HEAD
       <ion-item ng-repeat="poll in polls" type="item-text-wrap" href="#/tab/poll/{{poll.$id}}">
         {{poll.text}}<star-rating></star-rating>
+=======
+      <ion-item ng-repeat="(pollName,poll) in polls" type="item-text-wrap" href="#/tab/poll/{{poll.$id}}">
+        {{pollName}} {{data}}<star-rating></star-rating>
+>>>>>>> bdfa0688b2d3314ec99e6076b903801c5a7158b1
 
         <ion-option-button class="button-calm"
           ng-click="editFriend(friend)">
