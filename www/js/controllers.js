@@ -42,6 +42,18 @@ angular.module('starter.controllers', [])
     description: ''
   };
 
+  $scope.aggregateResults = function(poll){
+    results = {'yes': 0, 'no': 0}
+    if(poll.pollResponses){
+      for(var key in poll.pollResponses){
+        if(poll.pollResponses[key]){
+          poll.pollResponses[key].thisUsersAnswer.toLowerCase()==='yes' ? results.yes++ : results.no++;
+        }
+      }
+    }
+    return results;
+  };
+
   $scope.polls = Polls.asArray;
 
   $scope.showAddFriend = function() {
@@ -88,5 +100,11 @@ angular.module('starter.controllers', [])
     store.remove('profile');
     store.remove('refreshToken');
     $state.go('login');
+  }
+})
+
+.controller('NewPollCtrl', function($scope, Polls, $state, store) {
+  $scope.submitNewPost = function(pollData) {
+    console.log("working", pollData)  
   }
 });
