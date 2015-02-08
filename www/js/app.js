@@ -83,6 +83,16 @@ angular.module('starter', ['ionic',
           controller: 'AccountCtrl'
         }
       }
+    })
+
+    .state('tab.new_poll', {
+      url: '/new_poll',
+      views: {
+        'tab-new_poll': {
+          templateUrl: 'templates/tab-new_poll.html',
+          controller: 'NewPollCtrl'
+        }
+      }
     });
 
 
