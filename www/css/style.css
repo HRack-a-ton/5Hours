@@ -7,6 +7,7 @@
 
 * {
   font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  /*background-color: rgba(0, 255, 29, 0.02)!important;*/
 }
 
 a {
@@ -53,4 +54,38 @@ pre {
   font-variant: normal;
   font-weight: 400;
   line-height: 18.5714282989502px;
+}
+
+.tabs {
+  height: 6em;
+  background-color: rgba(0, 255, 29, 0.23)!important;
+}
+
+.bar-header {
+  height: 4em;
+  background-color: rgba(0, 255, 29, 0.23)!important;
+}
+
+
+.tab-item {
+  padding-top: 1.2em;
+  bottom: 0px;
+  width: auto;
+  height: auto;
+
+  
+
+}
+.icon {
+  transform: scale(1.2,1.2);
+}
+
+.tab-title {
+  position: relative;
+  padding-top: 1.2em;
+
+}
+
+.tab-item .icon {
+  height: 42px;
 }
