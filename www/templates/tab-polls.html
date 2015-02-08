@@ -7,7 +7,7 @@
   <ion-content class="has-header">
     <ion-list>
       <ion-item ng-repeat="poll in polls" type="item-text-wrap" href="#/tab/poll/{{poll.$id}}">
-        {{poll.name}} Yes:{{aggregateResults(poll).yes}} No:{{aggregateResults(poll).no}}
+        {{poll.name}} <chart poll="poll"></chart>
 
         <ion-option-button class="button-calm"
           ng-click="editFriend(friend)">
