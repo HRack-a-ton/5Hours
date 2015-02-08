@@ -1,5 +1,10 @@
 angular.module('starter.controllers', [])
 
+
+// // TODO: Somewhere here we need the following:
+// var userLocation = new UserLocation();
+// // To get current location:
+// var location = userLocation.getLocation();
 .controller('LoginCtrl', function($scope, auth, $state, store) {
   auth.signin({
     closable: false,
