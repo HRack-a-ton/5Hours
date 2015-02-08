@@ -47,7 +47,7 @@ angular.module('starter.controllers', [])
     if(poll.pollResponses){
       for(var key in poll.pollResponses){
         if(poll.pollResponses[key]){
-          poll.pollResponses[key].thisUsersAnswer.toLowerCase()==='Yes' ? results.yes++ : results.no++;
+          poll.pollResponses[key].thisUsersAnswer.toLowerCase()==='yes' ? results.yes++ : results.no++;
         }
       }
     }
