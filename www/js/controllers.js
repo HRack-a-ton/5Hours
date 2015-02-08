@@ -35,6 +35,9 @@ angular.module('starter.controllers', [])
 
 
 .controller('PollsCtrl', function($scope, Polls, $ionicModal) {
+
+  console.log('Polls is : ', Polls.asArray);
+
  $ionicModal.fromTemplateUrl('templates/poll-add-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -98,17 +101,28 @@ angular.module('starter.controllers', [])
 
 .controller('NewPollCtrl', function($scope, Polls, $state, store) {
   $scope.submitNewPost = function(pollData) {
+
+    var user = store.get('profile');
+
     if(typeof pollData != "string" || pollData.length <= 0)
       return;
 
-    console.log("working", pollData)  
     var poll = {
       id: pollData,
       name: pollData,
-      createdTime: Date()
+      createdTime: Date(),
+      pollResponses: {
+        user: {
+          thisUsersAnswer: "Yes"
+        }
+      }
     };
 
     Polls.add(poll);
     $scope.pollData = "";
+
+    console.log("working", poll);
+
+
   }
 });
