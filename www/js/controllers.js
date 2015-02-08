@@ -30,6 +30,9 @@ angular.module('starter.controllers', [])
 
 
 .controller('PollsCtrl', function($scope, Polls, $ionicModal) {
+
+  console.log('Polls is : ', Polls.asArray);
+
  $ionicModal.fromTemplateUrl('templates/poll-add-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -42,7 +45,10 @@ angular.module('starter.controllers', [])
     description: ''
   };
 
+
+
   $scope.aggregateResults = function(poll){
+
     results = {'yes': 0, 'no': 0}
     if(poll.pollResponses){
       for(var key in poll.pollResponses){
@@ -100,5 +106,11 @@ angular.module('starter.controllers', [])
     store.remove('profile');
     store.remove('refreshToken');
     $state.go('login');
+  }
+})
+
+.controller('NewPollCtrl', function($scope, Polls, $state, store) {
+  $scope.submitNewPost = function(pollData) {
+    console.log("working", pollData)
   }
 });
