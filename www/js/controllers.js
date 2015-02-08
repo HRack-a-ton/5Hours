@@ -42,6 +42,18 @@ angular.module('starter.controllers', [])
     description: ''
   };
 
+  $scope.aggregateResults = function(poll){
+    results = {'yes': 0, 'no': 0}
+    if(poll.pollResponses){
+      for(var key in poll.pollResponses){
+        if(poll.pollResponses[key]){
+          poll.pollResponses[key].thisUsersAnswer.toLowerCase()==='Yes' ? results.yes++ : results.no++;
+        }
+      }
+    }
+    return results;
+  };
+
   $scope.polls = Polls.asArray;
 
   $scope.showAddFriend = function() {
