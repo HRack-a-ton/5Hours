@@ -110,6 +110,15 @@ angular.module('starter.controllers', [])
 
 .controller('NewPollCtrl', function($scope, Polls, $state, store) {
   $scope.submitNewPost = function(pollData) {
+    if(typeof pollData != "string" || pollData.length <= 0)
+      return;
+
     console.log("working", pollData)  
+    var poll = {
+      name: pollData
+    };
+
+    Polls.add(poll);
+    $scope.pollData = "";
   }
 });

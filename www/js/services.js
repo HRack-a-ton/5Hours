@@ -20,20 +20,20 @@ angular.module('starter.services', ['firebase'])
     return polls;
   }
 
-  this.add = function(friend) {
-    polls.$add(friend);
+  this.add = function(poll) {
+    ref.push(poll);
   };
 
   this.get = function(id) {
     return polls.$getRecord(id);
   };
 
-  this.save = function(friend) {
-    polls.$save(friend);
+  this.save = function(poll) {
+    polls.$save(poll);
   };
 
-  this.delete = function(friend) {
-    polls.$remove(friend);
+  this.delete = function(poll) {
+    polls.$remove(poll);
   };
 
 });
